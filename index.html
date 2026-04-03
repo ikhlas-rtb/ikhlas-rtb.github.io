@@ -5,665 +5,504 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ikhlas Retbi — CV</title>
   <style>
-    :root {
-      --bg: #0f172a;
-      --card: #1e293b;
-      --border: #334155;
-      --accent: #60a5fa;
-      --accent2: #34d399;
-      --text: #e2e8f0;
-      --muted: #94a3b8;
-    }
+    @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap');
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      font-family: 'Segoe UI', system-ui, sans-serif;
-      background: var(--bg);
-      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      background: #f5f5f0;
+      color: #1a1a1a;
+      font-size: 14px;
       line-height: 1.6;
     }
 
     /* LANG TOGGLE */
     .lang-bar {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      background: #0a1120;
-      border-bottom: 1px solid var(--border);
+      background: #1a1a1a;
       display: flex;
       justify-content: flex-end;
-      align-items: center;
-      padding: 10px 24px;
-      gap: 8px;
-    }
-    .lang-btn {
-      background: transparent;
-      border: 1px solid var(--border);
-      color: var(--muted);
-      padding: 4px 14px;
-      border-radius: 20px;
-      cursor: pointer;
-      font-size: 0.8rem;
-      transition: all 0.2s;
-    }
-    .lang-btn.active {
-      background: var(--accent);
-      color: #0f172a;
-      border-color: var(--accent);
-      font-weight: bold;
+      padding: 8px 20px;
+      gap: 6px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
 
-    .wrapper {
-      max-width: 860px;
-      margin: 60px auto 40px;
-      padding: 0 20px;
+    .lang-btn {
+      background: transparent;
+      border: 1px solid #555;
+      color: #aaa;
+      padding: 3px 12px;
+      border-radius: 3px;
+      cursor: pointer;
+      font-size: 0.75rem;
+      font-family: 'Inter', sans-serif;
+      letter-spacing: 1px;
+      transition: all 0.15s;
+    }
+
+    .lang-btn.active {
+      background: #fff;
+      color: #1a1a1a;
+      border-color: #fff;
+      font-weight: 600;
+    }
+
+    /* PAGE */
+    .page {
+      max-width: 780px;
+      margin: 30px auto;
+      background: #fff;
+      padding: 56px 64px;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.08);
     }
 
     /* HEADER */
-    .header {
-      display: flex;
-      align-items: center;
-      gap: 28px;
-      background: linear-gradient(135deg, #1e3a5f, #1e293b);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 32px;
-      margin-bottom: 24px;
+    .cv-header {
+      border-bottom: 2px solid #1a1a1a;
+      padding-bottom: 20px;
+      margin-bottom: 28px;
     }
 
-    .photo-placeholder {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #1e40af, #0f766e);
-      border: 3px solid var(--accent);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2.2rem;
-      flex-shrink: 0;
-      overflow: hidden;
+    .cv-header h1 {
+      font-family: 'EB Garamond', serif;
+      font-size: 2.4rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      color: #1a1a1a;
+      margin-bottom: 4px;
     }
 
-    .photo-placeholder img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 50%;
+    .cv-title {
+      font-size: 0.88rem;
+      color: #555;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      font-weight: 500;
+      margin-bottom: 14px;
     }
 
-    .header-info h1 {
-      font-size: 1.8rem;
-      color: var(--text);
-      font-weight: 700;
-    }
-
-    .header-info .title {
-      color: var(--accent);
-      font-size: 1rem;
-      margin: 4px 0 12px;
-    }
-
-    .contacts {
+    .cv-contacts {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 6px 20px;
+      font-size: 0.82rem;
+      color: #444;
     }
 
-    .contact-item {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      color: var(--muted);
-      font-size: 0.82rem;
+    .cv-contacts a {
+      color: #444;
       text-decoration: none;
-      background: #0f172a;
-      padding: 4px 10px;
-      border-radius: 6px;
-      border: 1px solid var(--border);
-      transition: color 0.2s;
     }
-    .contact-item:hover { color: var(--accent); }
+
+    .cv-contacts a:hover {
+      color: #000;
+      text-decoration: underline;
+    }
+
+    .cv-contacts span::before {
+      content: '·';
+      margin-right: 20px;
+      color: #ccc;
+    }
+
+    .cv-contacts span:first-child::before { display: none; }
 
     /* SECTIONS */
-    .section {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 24px;
-      margin-bottom: 20px;
+    .cv-section {
+      margin-bottom: 28px;
     }
 
-    .section-title {
-      font-size: 0.75rem;
-      font-weight: 700;
+    .cv-section-title {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 2px;
-      color: var(--accent);
-      margin-bottom: 18px;
-      padding-bottom: 10px;
-      border-bottom: 1px solid var(--border);
+      color: #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+      padding-bottom: 4px;
+      margin-bottom: 16px;
     }
 
     /* EXPERIENCE */
-    .exp-item { margin-bottom: 22px; }
+    .exp-item {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 0 16px;
+      margin-bottom: 18px;
+    }
+
     .exp-item:last-child { margin-bottom: 0; }
 
-    .exp-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      flex-wrap: wrap;
-      gap: 4px;
+    .exp-role {
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: #1a1a1a;
     }
 
-    .exp-title { font-weight: 600; font-size: 0.95rem; color: var(--text); }
-    .exp-company { color: var(--accent2); font-size: 0.85rem; }
-    .exp-date {
-      color: var(--muted);
-      font-size: 0.8rem;
-      background: #0f172a;
-      padding: 2px 10px;
-      border-radius: 20px;
-      white-space: nowrap;
-    }
-
-    .exp-bullets {
-      margin-top: 10px;
-      padding-left: 16px;
-      list-style: none;
-    }
-
-    .exp-bullets li {
-      position: relative;
-      padding-left: 14px;
-      color: var(--muted);
+    .exp-company {
       font-size: 0.85rem;
+      color: #555;
+      font-style: italic;
       margin-bottom: 6px;
     }
 
-    .exp-bullets li::before {
-      content: '▸';
-      position: absolute;
-      left: 0;
-      color: var(--accent);
+    .exp-date {
+      font-size: 0.8rem;
+      color: #777;
+      text-align: right;
+      white-space: nowrap;
+      padding-top: 2px;
     }
 
-    /* SKILLS GRID */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 16px;
+    .exp-bullets {
+      grid-column: 1 / -1;
+      padding-left: 14px;
+      margin-top: 6px;
     }
 
-    .skill-group h4 {
-      color: var(--accent2);
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 8px;
+    .exp-bullets li {
+      font-size: 0.83rem;
+      color: #333;
+      margin-bottom: 4px;
+      list-style: disc;
     }
 
-    .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
-
-    .skill-tag {
-      background: #0f172a;
-      color: var(--text);
-      border: 1px solid var(--border);
-      padding: 3px 10px;
-      border-radius: 6px;
-      font-size: 0.78rem;
+    /* SKILLS */
+    .skills-table {
+      width: 100%;
+      border-collapse: collapse;
     }
+
+    .skills-table tr td {
+      padding: 5px 0;
+      vertical-align: top;
+      font-size: 0.83rem;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .skills-table tr:last-child td { border-bottom: none; }
+
+    .skills-table td:first-child {
+      font-weight: 600;
+      color: #1a1a1a;
+      width: 160px;
+      padding-right: 16px;
+    }
+
+    .skills-table td:last-child { color: #444; }
 
     /* PROJECTS */
     .project-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      padding: 12px 0;
-      border-bottom: 1px solid var(--border);
-      gap: 12px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 4px 16px;
+      margin-bottom: 12px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #f0f0f0;
     }
-    .project-item:last-child { border-bottom: none; padding-bottom: 0; }
+
+    .project-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
 
     .project-name {
       font-weight: 600;
-      font-size: 0.9rem;
-      color: var(--text);
+      font-size: 0.87rem;
+      color: #1a1a1a;
     }
 
     .project-desc {
-      color: var(--muted);
       font-size: 0.82rem;
-      margin-top: 3px;
+      color: #555;
+      grid-column: 1;
     }
 
     .project-link {
-      color: var(--accent);
       font-size: 0.78rem;
+      color: #555;
       text-decoration: none;
+      align-self: start;
       white-space: nowrap;
-      background: #0f172a;
-      padding: 4px 10px;
-      border-radius: 6px;
-      border: 1px solid #1e40af;
-      flex-shrink: 0;
+      padding-top: 2px;
     }
-    .project-link:hover { background: #1e40af; }
 
-    /* CERTS */
-    .cert-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 0;
-      border-bottom: 1px solid var(--border);
-      flex-wrap: wrap;
-      gap: 6px;
-    }
-    .cert-item:last-child { border-bottom: none; }
-    .cert-name { font-size: 0.88rem; font-weight: 600; }
-    .cert-issuer { color: var(--muted); font-size: 0.8rem; }
-    .cert-badge {
-      font-size: 0.75rem;
-      padding: 3px 10px;
-      border-radius: 20px;
-      white-space: nowrap;
-    }
-    .cert-badge.done { background: #166534; color: #86efac; }
-    .cert-badge.progress { background: #1e3a5f; color: #93c5fd; }
+    .project-link:hover { color: #000; text-decoration: underline; }
 
     /* EDUCATION */
     .edu-item {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 0 16px;
+      margin-bottom: 12px;
+    }
+
+    .edu-item:last-child { margin-bottom: 0; }
+
+    .edu-degree {
+      font-weight: 600;
+      font-size: 0.87rem;
+    }
+
+    .edu-school {
+      font-size: 0.82rem;
+      color: #555;
+      font-style: italic;
+    }
+
+    .edu-date {
+      font-size: 0.8rem;
+      color: #777;
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    /* CERTIFICATIONS */
+    .cert-item {
       display: flex;
       justify-content: space-between;
-      align-items: flex-start;
-      padding: 10px 0;
-      border-bottom: 1px solid var(--border);
+      align-items: baseline;
+      padding: 5px 0;
+      border-bottom: 1px solid #f0f0f0;
+      gap: 12px;
       flex-wrap: wrap;
-      gap: 6px;
     }
-    .edu-item:last-child { border-bottom: none; }
-    .edu-degree { font-weight: 600; font-size: 0.9rem; }
-    .edu-school { color: var(--muted); font-size: 0.82rem; margin-top: 2px; }
-    .edu-date { color: var(--muted); font-size: 0.8rem; white-space: nowrap; }
+
+    .cert-item:last-child { border-bottom: none; }
+
+    .cert-name {
+      font-weight: 600;
+      font-size: 0.85rem;
+    }
+
+    .cert-sub {
+      font-size: 0.8rem;
+      color: #666;
+      font-style: italic;
+    }
+
+    .cert-status {
+      font-size: 0.78rem;
+      color: #777;
+      white-space: nowrap;
+    }
 
     /* LANGUAGES */
-    .lang-grid {
+    .lang-row {
       display: flex;
+      gap: 32px;
       flex-wrap: wrap;
-      gap: 12px;
-    }
-    .lang-item {
-      background: #0f172a;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 8px 16px;
-      text-align: center;
-    }
-    .lang-name { font-weight: 600; font-size: 0.88rem; }
-    .lang-level { color: var(--muted); font-size: 0.75rem; margin-top: 2px; }
-
-    /* QR + FOOTER */
-    .footer-section {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 24px;
-      margin-bottom: 20px;
-      flex-wrap: wrap;
-      gap: 20px;
     }
 
-    .qr-block { text-align: center; }
-    .qr-block img { border-radius: 8px; border: 4px solid var(--accent); }
-    .qr-label { color: var(--muted); font-size: 0.75rem; margin-top: 8px; }
+    .lang-row div {
+      font-size: 0.83rem;
+    }
 
-    .footer-text h3 { color: var(--accent); margin-bottom: 8px; }
-    .footer-text p { color: var(--muted); font-size: 0.85rem; max-width: 400px; }
+    .lang-row div span {
+      color: #777;
+      font-style: italic;
+      margin-left: 4px;
+    }
+
+    /* HIDDEN */
+    [data-lang] { display: none; }
+    [data-lang].active { display: block; }
+    .exp-bullets[data-lang].active { display: block; }
+    .lang-row[data-lang].active { display: flex; }
 
     /* PRINT */
     @media print {
-      body { background: white; color: black; }
+      body { background: white; }
       .lang-bar { display: none; }
-      .wrapper { margin-top: 0; }
-      .header, .section, .footer-section {
-        background: white;
-        border: 1px solid #ccc;
-        break-inside: avoid;
+      .page {
+        box-shadow: none;
+        margin: 0;
+        padding: 40px 50px;
       }
-      .section-title { color: #1e40af; }
-      .exp-company, .project-link, .cert-badge.done { color: #059669; }
-      .contact-item, .skill-tag, .lang-item { background: #f1f5f9; border-color: #cbd5e1; color: #334155; }
-      .header-info h1 { color: #0f172a; }
-      .header-info .title { color: #1e40af; }
-      a { color: #1e40af; }
     }
 
-    /* HIDDEN LANG */
-    [data-lang] { display: none; }
-    [data-lang].active { display: block; }
-    .lang-grid [data-lang], .skills-grid [data-lang],
-    .contacts [data-lang] { display: none; }
-    .lang-grid [data-lang].active, .skills-grid [data-lang].active,
-    .contacts [data-lang].active { display: flex; }
+    @media (max-width: 600px) {
+      .page { padding: 32px 24px; margin: 0; }
+      .cv-header h1 { font-size: 1.8rem; }
+    }
   </style>
 </head>
 <body>
 
 <div class="lang-bar">
-  <button class="lang-btn active" onclick="setLang('en')">EN</button>
-  <button class="lang-btn" onclick="setLang('fr')">FR</button>
+  <button class="lang-btn active" onclick="setLang('en', this)">EN</button>
+  <button class="lang-btn" onclick="setLang('fr', this)">FR</button>
 </div>
 
-<div class="wrapper">
+<div class="page">
 
   <!-- HEADER -->
-  <div class="header">
-    <div class="photo-placeholder">
-      <!-- Replace src with your photo URL -->
-      IR
-    </div>
-    <div class="header-info">
-      <h1>Ikhlas Retbi</h1>
-      <div class="title" data-lang="en active">Networks Engineer · DevOps & Cloud Security</div>
-      <div class="title" data-lang="fr">Ingénieure Réseaux · DevOps & Sécurité Cloud</div>
-      <div class="contacts">
-        <a class="contact-item" href="mailto:ikhlasretbi@gmail.com">✉ ikhlasretbi@gmail.com</a>
-        <a class="contact-item" href="tel:+212698533342">📞 +212 698 533 342</a>
-        <a class="contact-item" href="https://linkedin.com/in/ikhlas-retbi-82281624a" target="_blank">💼 LinkedIn</a>
-        <a class="contact-item" href="https://github.com/ikhlas-rtb" target="_blank">🐙 GitHub</a>
-        <span class="contact-item">📍 Kenitra, Maroc · Open to relocation</span>
-      </div>
+  <div class="cv-header">
+    <h1>Ikhlas Retbi</h1>
+    <div class="cv-title" data-lang="en active">Networks Engineer &nbsp;·&nbsp; DevOps &nbsp;·&nbsp; Cloud Security</div>
+    <div class="cv-title" data-lang="fr">Ingénieure Réseaux &nbsp;·&nbsp; DevOps &nbsp;·&nbsp; Sécurité Cloud</div>
+    <div class="cv-contacts">
+      <span><a href="mailto:ikhlasretbi@gmail.com">ikhlasretbi@gmail.com</a></span>
+      <span><a href="tel:+212698533342">+212 698 533 342</a></span>
+      <span>Kenitra, Maroc</span>
+      <span><a href="https://linkedin.com/in/ikhlas-retbi-82281624a" target="_blank">linkedin.com/in/ikhlas-retbi</a></span>
+      <span><a href="https://github.com/ikhlas-rtb" target="_blank">github.com/ikhlas-rtb</a></span>
     </div>
   </div>
 
-  <!-- EXPERIENCE EN -->
-  <div class="section" data-lang="en active">
-    <div class="section-title">Experience</div>
+  <!-- EXPERIENCE -->
+  <div class="cv-section">
+    <div class="cv-section-title" data-lang="en active">Experience</div>
+    <div class="cv-section-title" data-lang="fr">Expérience Professionnelle</div>
 
     <div class="exp-item">
-      <div class="exp-header">
-        <div>
-          <div class="exp-title">DevOps & Automation Engineer Intern</div>
-          <div class="exp-company">Teligent SARL — Rabat</div>
-        </div>
-        <div class="exp-date">Feb – Jun 2025</div>
-      </div>
-      <ul class="exp-bullets">
-        <li>Deployed containerized services using Docker in a POC environment for the Teligent P90/E telecom platform</li>
-        <li>Built end-to-end CI/CD pipelines with GitLab automating build, test, and validation workflows</li>
-        <li>Implemented full monitoring stack: Grafana + Prometheus + ELK Stack for real-time supervision and centralized log analysis</li>
-        <li>Automated infrastructure configuration with Ansible (IaC) ensuring portability and reproducibility across environments</li>
-        <li>Developed Python/Bash automation scripts with Makefile integration to optimize development workflows</li>
+      <div class="exp-role" data-lang="en active">DevOps & Automation Engineer — Intern</div>
+      <div class="exp-role" data-lang="fr">Ingénieure DevOps & Automatisation — Stage PFE</div>
+      <div class="exp-date">Feb – Jun 2025</div>
+      <div class="exp-company" data-lang="en active">Teligent SARL, Rabat</div>
+      <div class="exp-company" data-lang="fr">Teligent SARL, Rabat</div>
+      <ul class="exp-bullets" data-lang="en active">
+        <li>Deployed containerized services with Docker on the Teligent P90/E telecom platform (POC environment)</li>
+        <li>Built end-to-end CI/CD pipelines with GitLab automating build, test, and validation cycles</li>
+        <li>Implemented full monitoring stack: Grafana + Prometheus + ELK Stack for real-time supervision and log analysis</li>
+        <li>Automated infrastructure configuration with Ansible (IaC) ensuring reproducibility across environments</li>
+        <li>Developed Python/Bash automation scripts with Makefile integration to streamline development workflows</li>
       </ul>
-    </div>
-
-    <div class="exp-item">
-      <div class="exp-header">
-        <div>
-          <div class="exp-title">IT Infrastructure & Systems Intern</div>
-          <div class="exp-company">Magna Mirrors Morocco — Kenitra</div>
-        </div>
-        <div class="exp-date">Jul – Sept 2024</div>
-      </div>
-      <ul class="exp-bullets">
-        <li>Administered Linux and Windows Server infrastructure with focus on availability and performance</li>
-        <li>Monitored systems proactively using PRTG and performed log analysis for anomaly detection</li>
-        <li>Managed user access via Active Directory and handled incident resolution with full documentation</li>
-      </ul>
-    </div>
-
-    <div class="exp-item">
-      <div class="exp-header">
-        <div>
-          <div class="exp-title">Avionics Systems Maintenance Intern</div>
-          <div class="exp-company">RAM Handling — Casablanca</div>
-        </div>
-        <div class="exp-date">Apr – Jul 2023</div>
-      </div>
-      <ul class="exp-bullets">
-        <li>Performed preventive maintenance on critical avionics systems (RADAR Boeing 737-NG) following strict protocols</li>
-        <li>Produced technical intervention reports and maintained documentation of maintenance procedures</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- EXPERIENCE FR -->
-  <div class="section" data-lang="fr">
-    <div class="section-title">Expérience Professionnelle</div>
-
-    <div class="exp-item">
-      <div class="exp-header">
-        <div>
-          <div class="exp-title">Ingénieure DevOps & Automatisation — Stage PFE</div>
-          <div class="exp-company">Teligent SARL — Rabat</div>
-        </div>
-        <div class="exp-date">Fév – Juin 2025</div>
-      </div>
-      <ul class="exp-bullets">
-        <li>Déploiement de services conteneurisés avec Docker en environnement POC sur la plateforme Teligent P90/E</li>
+      <ul class="exp-bullets" data-lang="fr">
+        <li>Déploiement de services conteneurisés avec Docker sur la plateforme télécom Teligent P90/E (environnement POC)</li>
         <li>Développement de pipelines CI/CD avec GitLab automatisant les cycles build, test et validation</li>
         <li>Implémentation d'une stack de monitoring complète : Grafana + Prometheus + ELK Stack pour supervision temps réel</li>
-        <li>Automatisation des configurations via Ansible (IaC) pour assurer la portabilité et la reproductibilité</li>
-        <li>Développement de scripts Python/Bash avec intégration Makefile pour optimisation des workflows</li>
+        <li>Automatisation des configurations via Ansible (IaC) garantissant la reproductibilité des environnements</li>
+        <li>Développement de scripts Python/Bash avec intégration Makefile pour l'optimisation des workflows</li>
       </ul>
     </div>
 
     <div class="exp-item">
-      <div class="exp-header">
-        <div>
-          <div class="exp-title">IT Infrastructure & Systems — Stage</div>
-          <div class="exp-company">Magna Mirrors Morocco — Kenitra</div>
-        </div>
-        <div class="exp-date">Juil – Sept 2024</div>
-      </div>
-      <ul class="exp-bullets">
-        <li>Administration d'infrastructures Linux et Windows Server avec focus sur la disponibilité et la performance</li>
-        <li>Supervision proactive via PRTG et analyse de logs système/réseau pour détection d'anomalies</li>
-        <li>Administration des accès utilisateurs via Active Directory et gestion des incidents avec documentation</li>
+      <div class="exp-role" data-lang="en active">IT Infrastructure & Systems — Intern</div>
+      <div class="exp-role" data-lang="fr">IT Infrastructure & Systems — Stage</div>
+      <div class="exp-date">Jul – Sep 2024</div>
+      <div class="exp-company">Magna Mirrors Morocco, Kenitra</div>
+      <ul class="exp-bullets" data-lang="en active">
+        <li>Administered Linux and Windows Server infrastructure with focus on availability and performance</li>
+        <li>Monitored systems proactively via PRTG and performed log analysis for anomaly detection and incident resolution</li>
+        <li>Managed user access via Active Directory and maintained full incident documentation</li>
+      </ul>
+      <ul class="exp-bullets" data-lang="fr">
+        <li>Administration d'infrastructures Linux et Windows Server axée sur la disponibilité et la performance</li>
+        <li>Supervision proactive via PRTG et analyse de logs pour détection d'anomalies et résolution d'incidents</li>
+        <li>Gestion des accès utilisateurs via Active Directory avec documentation complète des incidents</li>
       </ul>
     </div>
 
     <div class="exp-item">
-      <div class="exp-header">
-        <div>
-          <div class="exp-title">Maintenance Systèmes Avioniques — Stage</div>
-          <div class="exp-company">RAM Handling — Casablanca</div>
-        </div>
-        <div class="exp-date">Avr – Juil 2023</div>
-      </div>
-      <ul class="exp-bullets">
-        <li>Maintenance préventive de systèmes critiques (RADAR Boeing 737-NG) avec respect strict des protocoles</li>
-        <li>Rédaction de rapports techniques d'intervention et documentation des procédures</li>
+      <div class="exp-role" data-lang="en active">Avionics Systems Maintenance — Intern</div>
+      <div class="exp-role" data-lang="fr">Maintenance Systèmes Avioniques — Stage</div>
+      <div class="exp-date">Apr – Jul 2023</div>
+      <div class="exp-company">RAM Handling, Casablanca</div>
+      <ul class="exp-bullets" data-lang="en active">
+        <li>Performed preventive maintenance on critical avionics systems (RADAR Boeing 737-NG) under strict protocols</li>
+        <li>Produced technical intervention reports and maintained maintenance procedure documentation</li>
+      </ul>
+      <ul class="exp-bullets" data-lang="fr">
+        <li>Maintenance préventive de systèmes avioniques critiques (RADAR Boeing 737-NG) selon protocoles stricts</li>
+        <li>Rédaction de rapports techniques d'intervention et documentation des procédures de maintenance</li>
       </ul>
     </div>
   </div>
 
   <!-- SKILLS -->
-  <div class="section">
-    <div class="section-title" data-lang="en active">Technical Skills</div>
-    <div class="section-title" data-lang="fr">Compétences Techniques</div>
-    <div class="skills-grid">
-      <div class="skill-group">
-        <h4>DevOps & CI/CD</h4>
-        <div class="skill-tags">
-          <span class="skill-tag">Docker</span>
-          <span class="skill-tag">GitLab CI/CD</span>
-          <span class="skill-tag">Ansible</span>
-          <span class="skill-tag">Kubernetes</span>
-          <span class="skill-tag">Git</span>
-          <span class="skill-tag">GitHub Actions</span>
-        </div>
-      </div>
-      <div class="skill-group">
-        <h4>Cloud & IaC</h4>
-        <div class="skill-tags">
-          <span class="skill-tag">AWS</span>
-          <span class="skill-tag">Terraform</span>
-          <span class="skill-tag">Azure</span>
-          <span class="skill-tag">CloudTrail</span>
-          <span class="skill-tag">GuardDuty</span>
-        </div>
-      </div>
-      <div class="skill-group">
-        <h4>Monitoring & Security</h4>
-        <div class="skill-tags">
-          <span class="skill-tag">Grafana</span>
-          <span class="skill-tag">Prometheus</span>
-          <span class="skill-tag">ELK Stack</span>
-          <span class="skill-tag">Splunk</span>
-          <span class="skill-tag">PRTG</span>
-          <span class="skill-tag">Azure Sentinel</span>
-          <span class="skill-tag">SIEM</span>
-        </div>
-      </div>
-      <div class="skill-group">
-        <h4>Scripting & Dev</h4>
-        <div class="skill-tags">
-          <span class="skill-tag">Python</span>
-          <span class="skill-tag">Bash</span>
-          <span class="skill-tag">Shell</span>
-          <span class="skill-tag">JavaScript</span>
-          <span class="skill-tag">Java</span>
-        </div>
-      </div>
-      <div class="skill-group">
-        <h4>Systems & Networks</h4>
-        <div class="skill-tags">
-          <span class="skill-tag">Linux</span>
-          <span class="skill-tag">Windows Server</span>
-          <span class="skill-tag">Active Directory</span>
-          <span class="skill-tag">TCP/IP</span>
-          <span class="skill-tag">VLAN</span>
-          <span class="skill-tag">GNS3</span>
-          <span class="skill-tag">VMware</span>
-          <span class="skill-tag">Proxmox</span>
-        </div>
-      </div>
-      <div class="skill-group">
-        <h4>Methodology</h4>
-        <div class="skill-tags">
-          <span class="skill-tag">Agile/Scrum</span>
-          <span class="skill-tag">DevSecOps</span>
-          <span class="skill-tag">IaC</span>
-          <span class="skill-tag">MITRE ATT&CK</span>
-          <span class="skill-tag">CIS Benchmark</span>
-        </div>
-      </div>
+  <div class="cv-section">
+    <div class="cv-section-title" data-lang="en active">Technical Skills</div>
+    <div class="cv-section-title" data-lang="fr">Compétences Techniques</div>
+    <table class="skills-table">
+      <tr>
+        <td data-lang="en active">DevOps & CI/CD</td>
+        <td data-lang="fr">DevOps & CI/CD</td>
+        <td>Docker, GitLab CI/CD, GitHub Actions, Ansible, Kubernetes, Git</td>
+      </tr>
+      <tr>
+        <td data-lang="en active">Cloud & IaC</td>
+        <td data-lang="fr">Cloud & IaC</td>
+        <td>AWS (EC2, VPC, CloudTrail, CloudWatch, GuardDuty, Lambda), Terraform, Azure</td>
+      </tr>
+      <tr>
+        <td data-lang="en active">Monitoring & Security</td>
+        <td data-lang="fr">Monitoring & Sécurité</td>
+        <td>Grafana, Prometheus, ELK Stack, Splunk, PRTG, Azure Sentinel, SIEM, IDS/IPS</td>
+      </tr>
+      <tr>
+        <td data-lang="en active">Scripting</td>
+        <td data-lang="fr">Scripting</td>
+        <td>Python, Bash, Shell, JavaScript</td>
+      </tr>
+      <tr>
+        <td data-lang="en active">Systems & Networks</td>
+        <td data-lang="fr">Systèmes & Réseaux</td>
+        <td>Linux (Ubuntu, CentOS, RHEL), Windows Server, Active Directory, TCP/IP, VLAN, GNS3, VMware, Proxmox</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- PROJECTS -->
+  <div class="cv-section">
+    <div class="cv-section-title" data-lang="en active">Projects</div>
+    <div class="cv-section-title" data-lang="fr">Projets</div>
+
+    <div class="project-item">
+      <div class="project-name" data-lang="en active">AWS Cloud Monitoring & Security Stack</div>
+      <div class="project-name" data-lang="fr">Stack Monitoring & Sécurité AWS</div>
+      <a class="project-link" href="https://github.com/ikhlas-rtb/aws-cloud-monitoring" target="_blank">github.com/ikhlas-rtb/aws-cloud-monitoring</a>
+      <div class="project-desc" data-lang="en active">CloudTrail + CloudWatch with 8 CIS Benchmark alarms + GuardDuty + Lambda auto-response + SNS alerting. Live-tested.</div>
+      <div class="project-desc" data-lang="fr">CloudTrail + CloudWatch (8 alarmes CIS) + GuardDuty + Lambda auto-réponse + alertes SNS. Testé en conditions réelles.</div>
+    </div>
+
+    <div class="project-item">
+      <div class="project-name" data-lang="en active">Terraform AWS Infrastructure Lab</div>
+      <div class="project-name" data-lang="fr">Infrastructure AWS avec Terraform</div>
+      <a class="project-link" href="https://github.com/ikhlas-rtb/terraform-aws-lab" target="_blank">github.com/ikhlas-rtb/terraform-aws-lab</a>
+      <div class="project-desc" data-lang="en active">Full AWS environment (VPC, EC2, Security Groups) deployed via IaC with S3 remote state and GitHub Actions CI pipeline.</div>
+      <div class="project-desc" data-lang="fr">Environnement AWS complet (VPC, EC2, Groupes de sécurité) déployé via IaC avec état distant S3 et pipeline CI GitHub Actions.</div>
+    </div>
+
+    <div class="project-item">
+      <div class="project-name">SIEM Lab — Azure Sentinel</div>
+      <a class="project-link" href="https://github.com/ikhlas-rtb/SIEM-Lab-Project" target="_blank">github.com/ikhlas-rtb/SIEM-Lab-Project</a>
+      <div class="project-desc" data-lang="en active">SIEM deployment on Microsoft Azure Sentinel with threat detection rules and centralized log analytics.</div>
+      <div class="project-desc" data-lang="fr">Déploiement SIEM sur Microsoft Azure Sentinel avec règles de détection de menaces et analyse centralisée de logs.</div>
+    </div>
+
+    <div class="project-item">
+      <div class="project-name" data-lang="en active">DevOps Automation — Teligent P90/E (Thesis)</div>
+      <div class="project-name" data-lang="fr">Automatisation DevOps — Teligent P90/E (PFE)</div>
+      <a class="project-link" href="https://github.com/ikhlas-rtb/P90E-project" target="_blank">github.com/ikhlas-rtb/P90E-project</a>
+      <div class="project-desc" data-lang="en active">Full DevOps adoption on a telecom platform: Docker, GitLab CI/CD, Ansible IaC, Grafana + ELK monitoring stack.</div>
+      <div class="project-desc" data-lang="fr">Adoption DevOps complète sur plateforme télécom : Docker, GitLab CI/CD, Ansible IaC, stack monitoring Grafana + ELK.</div>
     </div>
   </div>
 
-  <!-- PROJECTS EN -->
-  <div class="section" data-lang="en active">
-    <div class="section-title">Projects</div>
+  <!-- EDUCATION -->
+  <div class="cv-section">
+    <div class="cv-section-title" data-lang="en active">Education</div>
+    <div class="cv-section-title" data-lang="fr">Formation</div>
 
-    <div class="project-item">
-      <div>
-        <div class="project-name">AWS Cloud Monitoring & Security Stack</div>
-        <div class="project-desc">CloudTrail + CloudWatch (8 CIS alarms) + GuardDuty + Lambda auto-response + SNS alerting. Live alerts tested.</div>
-      </div>
-      <a class="project-link" href="https://github.com/ikhlas-rtb/aws-cloud-monitoring" target="_blank">View →</a>
-    </div>
-
-    <div class="project-item">
-      <div>
-        <div class="project-name">Terraform AWS Infrastructure Lab</div>
-        <div class="project-desc">VPC + EC2 + Security Groups deployed via IaC with remote S3 state and GitHub Actions CI pipeline.</div>
-      </div>
-      <a class="project-link" href="https://github.com/ikhlas-rtb/terraform-aws-lab" target="_blank">View →</a>
-    </div>
-
-    <div class="project-item">
-      <div>
-        <div class="project-name">SIEM Lab — Azure Sentinel</div>
-        <div class="project-desc">Professional SIEM deployment on Microsoft Azure Sentinel with threat detection rules and log analytics.</div>
-      </div>
-      <a class="project-link" href="https://github.com/ikhlas-rtb/SIEM-Lab-Project" target="_blank">View →</a>
-    </div>
-
-    <div class="project-item">
-      <div>
-        <div class="project-name">DevOps Automation — Teligent P90/E (Thesis)</div>
-        <div class="project-desc">Full DevOps adoption on a telecom platform: Docker, GitLab CI/CD, Ansible IaC, Grafana+ELK monitoring.</div>
-      </div>
-      <a class="project-link" href="https://github.com/ikhlas-rtb/P90E-project" target="_blank">View →</a>
-    </div>
-  </div>
-
-  <!-- PROJECTS FR -->
-  <div class="section" data-lang="fr">
-    <div class="section-title">Projets</div>
-
-    <div class="project-item">
-      <div>
-        <div class="project-name">Stack de Monitoring & Sécurité AWS</div>
-        <div class="project-desc">CloudTrail + CloudWatch (8 alarmes CIS) + GuardDuty + Lambda auto-réponse + alertes SNS. Alertes testées en live.</div>
-      </div>
-      <a class="project-link" href="https://github.com/ikhlas-rtb/aws-cloud-monitoring" target="_blank">Voir →</a>
-    </div>
-
-    <div class="project-item">
-      <div>
-        <div class="project-name">Infrastructure AWS avec Terraform</div>
-        <div class="project-desc">VPC + EC2 + Groupes de sécurité déployés via IaC avec état distant S3 et pipeline CI GitHub Actions.</div>
-      </div>
-      <a class="project-link" href="https://github.com/ikhlas-rtb/terraform-aws-lab" target="_blank">Voir →</a>
-    </div>
-
-    <div class="project-item">
-      <div>
-        <div class="project-name">SIEM Lab — Azure Sentinel</div>
-        <div class="project-desc">Déploiement professionnel de SIEM sur Microsoft Azure Sentinel avec règles de détection et analyse de logs.</div>
-      </div>
-      <a class="project-link" href="https://github.com/ikhlas-rtb/SIEM-Lab-Project" target="_blank">Voir →</a>
-    </div>
-
-    <div class="project-item">
-      <div>
-        <div class="project-name">Automatisation DevOps — Teligent P90/E (PFE)</div>
-        <div class="project-desc">Adoption DevOps complète sur plateforme télécom : Docker, GitLab CI/CD, Ansible IaC, monitoring Grafana+ELK.</div>
-      </div>
-      <a class="project-link" href="https://github.com/ikhlas-rtb/P90E-project" target="_blank">Voir →</a>
-    </div>
-  </div>
-
-  <!-- EDUCATION EN -->
-  <div class="section" data-lang="en active">
-    <div class="section-title">Education</div>
     <div class="edu-item">
       <div>
-        <div class="edu-degree">MSc — Networks & Telecommunications Engineering</div>
-        <div class="edu-school">Faculté des Sciences et Techniques, Settat · Thesis: DevOps Adoption on Teligent P90/E via Ansible</div>
+        <div class="edu-degree" data-lang="en active">MSc — Networks & Telecommunications Engineering</div>
+        <div class="edu-degree" data-lang="fr">Master Sciences et Techniques — Ingénierie des Réseaux</div>
+        <div class="edu-school" data-lang="en active">Faculté des Sciences et Techniques, Settat &nbsp;·&nbsp; Thesis: DevOps Adoption on Teligent P90/E via Ansible</div>
+        <div class="edu-school" data-lang="fr">FST Settat &nbsp;·&nbsp; PFE : Adoption de la démarche DevOps sur la plateforme Teligent P90/E via Ansible</div>
       </div>
       <div class="edu-date">2023 – 2025</div>
     </div>
-    <div class="edu-item">
-      <div>
-        <div class="edu-degree">BSc — Electrical Engineering & Automated Systems</div>
-        <div class="edu-school">Faculté des Sciences et Techniques, Settat</div>
-      </div>
-      <div class="edu-date">2022 – 2023</div>
-    </div>
-  </div>
 
-  <!-- EDUCATION FR -->
-  <div class="section" data-lang="fr">
-    <div class="section-title">Formation</div>
     <div class="edu-item">
       <div>
-        <div class="edu-degree">Master Sciences et Techniques — Ingénierie des Réseaux</div>
-        <div class="edu-school">FST Settat · PFE : Adoption DevOps sur la plateforme Teligent P90/E via Ansible</div>
-      </div>
-      <div class="edu-date">2023 – 2025</div>
-    </div>
-    <div class="edu-item">
-      <div>
-        <div class="edu-degree">Licence Sciences et Techniques — Génie Électrique</div>
+        <div class="edu-degree" data-lang="en active">BSc — Electrical Engineering & Automated Systems</div>
+        <div class="edu-degree" data-lang="fr">Licence Sciences et Techniques — Génie Électrique</div>
         <div class="edu-school">FST Settat</div>
       </div>
       <div class="edu-date">2022 – 2023</div>
@@ -671,77 +510,54 @@
   </div>
 
   <!-- CERTIFICATIONS -->
-  <div class="section">
-    <div class="section-title" data-lang="en active">Certifications</div>
-    <div class="section-title" data-lang="fr">Certifications</div>
+  <div class="cv-section">
+    <div class="cv-section-title">Certifications</div>
 
     <div class="cert-item">
       <div>
         <div class="cert-name">Google Cybersecurity Professional Certificate</div>
-        <div class="cert-issuer">Coursera / UM6P · Network Security, SIEM, Linux Security, Incident Response</div>
+        <div class="cert-sub">Coursera / UM6P &nbsp;·&nbsp; Network Security, SIEM, Linux Security, Incident Response</div>
       </div>
-      <span class="cert-badge done">2025</span>
+      <div class="cert-status">2025</div>
     </div>
+
     <div class="cert-item">
       <div>
         <div class="cert-name">ALX Data Science & Data Engineering</div>
-        <div class="cert-issuer">ALX Africa · 14-month program · Started Feb 2025</div>
+        <div class="cert-sub" data-lang="en active">ALX Africa &nbsp;·&nbsp; 14-month program &nbsp;·&nbsp; Started Feb 2025</div>
+        <div class="cert-sub" data-lang="fr">ALX Africa &nbsp;·&nbsp; Programme 14 mois &nbsp;·&nbsp; Débuté fév. 2025</div>
       </div>
-      <span class="cert-badge progress">In Progress</span>
+      <div class="cert-status" data-lang="en active">In Progress</div>
+      <div class="cert-status" data-lang="fr">En cours</div>
     </div>
   </div>
 
   <!-- LANGUAGES -->
-  <div class="section">
-    <div class="section-title" data-lang="en active">Languages</div>
-    <div class="section-title" data-lang="fr">Langues</div>
-    <div class="lang-grid">
-      <div class="lang-item">
-        <div class="lang-name">Arabic</div>
-        <div class="lang-level">Native</div>
-      </div>
-      <div class="lang-item">
-        <div class="lang-name">French</div>
-        <div class="lang-level">Fluent</div>
-      </div>
-      <div class="lang-item">
-        <div class="lang-name">English</div>
-        <div class="lang-level">Professional</div>
-      </div>
-      <div class="lang-item">
-        <div class="lang-name">Spanish</div>
-        <div class="lang-level">Basic</div>
-      </div>
+  <div class="cv-section">
+    <div class="cv-section-title" data-lang="en active">Languages</div>
+    <div class="cv-section-title" data-lang="fr">Langues</div>
+    <div class="lang-row" data-lang="en active">
+      <div>Arabic <span>Native</span></div>
+      <div>French <span>Fluent</span></div>
+      <div>English <span>Professional</span></div>
+      <div>Spanish <span>Basic</span></div>
     </div>
-  </div>
-
-  <!-- QR + FOOTER -->
-  <div class="footer-section">
-    <div class="qr-block">
-      <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://ikhlas-rtb.github.io&bgcolor=1e293b&color=60a5fa&format=png" alt="QR Code" width="120" height="120">
-      <div class="qr-label">Scan → ikhlas-rtb.github.io</div>
-    </div>
-    <div class="footer-text">
-      <h3>Ikhlas Retbi</h3>
-      <p data-lang="en active">Available immediately · Open to relocation worldwide · Looking for DevOps, Cloud, SOC, or Network Engineering roles.</p>
-      <p data-lang="fr">Disponible immédiatement · Mobilité mondiale · Recherche poste DevOps, Cloud, SOC ou Ingénierie Réseaux.</p>
+    <div class="lang-row" data-lang="fr">
+      <div>Arabe <span>Natif</span></div>
+      <div>Français <span>Courant</span></div>
+      <div>Anglais <span>Professionnel</span></div>
+      <div>Espagnol <span>Notions</span></div>
     </div>
   </div>
 
 </div>
 
 <script>
-  function setLang(lang) {
-    document.querySelectorAll('[data-lang]').forEach(el => {
-      el.classList.remove('active');
-    });
-    document.querySelectorAll(`[data-lang="${lang}"]`).forEach(el => {
-      el.classList.add('active');
-    });
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-      btn.classList.remove('active');
-    });
-    event.target.classList.add('active');
+  function setLang(lang, btn) {
+    document.querySelectorAll('[data-lang]').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll(`[data-lang="${lang}"]`).forEach(el => el.classList.add('active'));
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
   }
 </script>
 
